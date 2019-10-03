@@ -6,18 +6,18 @@ the basket has a maximum size, however.
 
 class CucumberBasket:
 
-    def __init__(self, initial_count=0, max_count=10): #
+    def __init__(self, initial_count=0, max_count=10): #/
         if initial_count < 0:
             raise ValueError("initial cucumber basket count must not be negative")
         if max_count < 0:
             raise ValueError("max xuxumber basket count must not be negative")
 
-        self._count = initial_count #
-        self._max_count = max_count #
+        self._count = initial_count #/
+        self._max_count = max_count #/
     
     @property #
-    def count(self): #
-        return self._count #
+    def count(self): #/
+        return self._count #/
     
     @property
     def full(self):
