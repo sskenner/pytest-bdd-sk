@@ -1,4 +1,6 @@
-from pytest_bdd import scenarios, parsers, given, when, then
+import pytest
+
+from pytest_bdd import scenario, parsers, given, when, then
 
 from cucumbers import CucumberBasket
 
@@ -12,7 +14,15 @@ CONVERTERS = {
   'total': int,
 }
 
-scenarios('../features/cucumbers.feature', example_converters=CONVERTERS)
+@pytest.mark.parametrize(
+  ['initial', 'some', 'total'],
+  [(0, 3, 3),
+   (2, 4, 6),
+   (5, 5,10)])
+@scenario('../features/cucumbers.feature', 'Add cucumbers to a basket')
+# scenarios('../features/cucumbers.feature', example_converters=CONVERTERS)
+def test_add(initial, some, total):
+  pass
 
 @given(parsers.cfparse('the basket has "{initial:Number}" cucumbers', extra_types=EXTRA_TYPES))
 @given('the basket has "<initial>" cucumbers')
