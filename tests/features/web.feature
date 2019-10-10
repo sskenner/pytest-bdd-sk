@@ -6,12 +6,12 @@ Feature: DuckDuckGo Web Browsing
   Background:
     Given the DuckDuckGo home page is displayed
   
-  Scenario:
-    When the user searched for "panda"
+  Scenario: Basic DuckDuckGo Search
+    When the user searches for "panda"
     Then results are shown for "panda"
   
   Scenario: Lengthy DuckDuckGo Search
-    When the user searches fro the phrase:
+    When the user searches for the phrase:
       """
       When in the Course of human events, it becomes necessary for one people
        to dissolve the political bands which have connected them with another,
